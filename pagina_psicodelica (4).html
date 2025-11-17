@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Psicodelia Lautikk</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: radial-gradient(circle, #000000, #ff00ff);
+        animation: fondoColor 4s infinite alternate;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 60px;
+        font-size: 3rem;
+        text-shadow: 0 0 20px #ff00ff;
+        animation: glow 0.3s infinite alternate, cambioColor 0.5s infinite;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 10px #00ffff; }
+        100% { text-shadow: 0 0 25px #ff00ff; }
+    }
+
+    @keyframes cambioColor {
+        0% { color: #ff00ff; }
+        25% { color: #00ffff; }
+        50% { color: #ffea00; }
+        75% { color: #ff0066; }
+        100% { color: #ffffff; }
+    }
+
+    @keyframes fondoColor {
+        0% { background: radial-gradient(circle, #000000, #ff00ff); }
+        20% { background: radial-gradient(circle, #111111, #ff0066); }
+        40% { background: radial-gradient(circle, #222222, #00ffff); }
+        60% { background: radial-gradient(circle, #333333, #ffea00); }
+        80% { background: radial-gradient(circle, #444444, #ff00ff); }
+        100% { background: radial-gradient(circle, #000000, #ff00ff); }
+    }
+
+    .menu {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.4rem;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        color: white;
+        background: linear-gradient(90deg, #ff00ff, #00ffff);
+        box-shadow: 0 0 15px #ff00ff;
+        transition: transform 0.3s, filter 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.2) rotate(5deg);
+        filter: hue-rotate(90deg);
+    }
+
+    #imagenes {
+        display: none;
+        margin-top: 40px;
+        animation: appear 1s ease-out;
+    }
+
+    @keyframes appear {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .img-psy {
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        margin: 20px;
+        border: 5px solid;
+        border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffea00, #ff0066) 1;
+        box-shadow: 0 0 20px #00ffff;
+        animation: colores 3s infinite alternate, bordeColores 1s infinite, respirar 4s infinite ease-in-out;
+    }
+
+    @keyframes colores {
+        0% { filter: hue-rotate(0deg) saturate(200%); }
+        100% { filter: hue-rotate(360deg) saturate(400%); }
+    }
+
+    @keyframes bordeColores {
+        0% { border-image: linear-gradient(0deg, #ff00ff, #00ffff) 1; }
+        50% { border-image: linear-gradient(180deg, #ffea00, #ff0066) 1; }
+        100% { border-image: linear-gradient(360deg, #ff00ff, #00ffff) 1; }
+    }
+
+    @keyframes respirar {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .flash {
+        animation: flash 0.4s ease-out;
+    }
+
+    @keyframes flash {
+        0% { filter: brightness(3); }
+        100% { filter: brightness(1); }
+    }
+
+    @keyframes irse {
+        0% { transform: translate(0,0) scale(1) rotate(0deg); opacity: 1; }
+        50% { transform: translate(150px,-80px) scale(1.2) rotate(20deg); opacity: 0.7; }
+        100% { transform: translate(400px,-200px) scale(0.4) rotate(-40deg); opacity: 0; }
+    }
+
+    .irseAnim {
+        animation: irse 1.8s forwards ease-out;
+    }
+
+    a { color: white; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>Puto el que lee</h1>
+
+<div class="menu">
+    <button class="btn" onclick="mostrarImagenes()">Imágenes Psicodélicas</button>
+
+    <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1" target="_blank" onclick="this.classList.add('flash'); setTimeout(()=>this.classList.remove('flash'),400)">
+        <button class="btn">Windows 10 Pro Crackeado</button>
+    </a>
+
+    <button class="btn" id="reclamarBtn" onclick="moverseYSalir()">Reclamar 1000 pesos</button>
+</div>
+
+<div id="imagenes">
+    <img class="img-psy" src="data:image/jpeg;base64, {{b64_2}}" />
+    <img class="img-psy" src="data:image/jpeg;base64, {{b64_2}}" />
+</div>
+
+<script>
+function mostrarImagenes() {
+    document.getElementById('imagenes').style.display = 'block';
+}
+
+function moverseYSalir() {
+    const btn = document.getElementById('reclamarBtn');
+    btn.classList.add('irseAnim');
+}
+</script>
+</body>
+</html>
